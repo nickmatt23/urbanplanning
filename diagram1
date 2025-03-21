@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micromobility Research Framework</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .main-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #2d3e50;
+        }
+        
+        .section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+        
+        .box {
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+        }
+        
+        .box-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .box-content {
+            font-size: 14px;
+        }
+        
+        .center-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 50%;
+            max-width: 300px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            margin: 10px 0;
+        }
+        
+        .center-box h2 {
+            margin: 0 0 10px 0;
+        }
+        
+        .center-box p {
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        .connector {
+            width: 3px;
+            height: 40px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+        
+        .horizontal-connector {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .h-line {
+            width: 70%;
+            height: 3px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            margin: 0 auto;
+        }
+        
+        .v-lines {
+            display: flex;
+            justify-content: space-around;
+            width: 70%;
+            margin: 0 auto;
+        }
+        
+        .v-line {
+            width: 3px;
+            height: 30px;
+            background: linear-gradient(to bottom, #764ba2, #667eea);
+        }
+        
+        /* Color scheme */
+        .theory-box {
+            background: linear-gradient(135deg, #9BE8D8, #6ADFCA);
+            color: #2d3e50;
+        }
+        
+        .methodology-box {
+            background: linear-gradient(135deg, #FFCDB2, #FFB4A2);
+            color: #2d3e50;
+        }
+        
+        .outcomes-box {
+            background: linear-gradient(135deg, #B5EAD7, #85D8C7);
+            color: #2d3e50;
+        }
+        
+        .analysis-box {
+            background: linear-gradient(135deg, #E2F0CB, #C7F9CC);
+            color: #2d3e50;
+        }
+        
+        .equity-box {
+            background: linear-gradient(135deg, #A0C4FF, #BDB2FF);
+            color: #2d3e50;
+        }
+        
+        .policy-box {
+            background: linear-gradient(135deg, #FFC6FF, #FFADAD);
+            color: #2d3e50;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .box, .center-box, .connector, .h-line, .v-line {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .box:nth-child(1) { animation-delay: 0.1s; }
+        .box:nth-child(2) { animation-delay: 0.2s; }
+        .box:nth-child(3) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="diagram">
+            <h1 class="main-title">Micro Mobility Services in Los Angeles: Access and Inequality</h1>
+            
+            <!-- First row: Theoretical Framework -->
+            <div class="section">
+                <div class="box theory-box">
+                    <div class="box-title">Neoliberal Urbanism</div>
+                    <div class="box-content">
+                        <ul>
+                            <li>Privatization</li>
+                            <li>Market Solutions</li>
+                            <li>Urban Growth Politics</li>
+                            <li>Public/Private Boundaries</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="box theory-box">
+                    <div class="box-title">Social Justice</div>
+                    <div class="box-content">
+                        <ul>
+                            <li>Equity</li>
+                            <li>Right to the City</li>
+                            <li>Spatial & Transport Inequality</li>
+                            <li>Access Distribution</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="box theory-box">
+                    <div class="box-title">Critical Planning</div>
+                    <div class="box-content">
+                        <ul>
+                            <li>Power Dynamics</li>
+                            <li>Public Engagement</li>
+                            <li>Information Politics</li>
+                            <li>Decision-making Processes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Connector -->
+            <div class="v-lines">
+                <div class="v-line"></div>
+                <div class="v-line"></div>
+                <div class="v-line"></div>
+            </div>
+            
+            <div class="horizontal-connector">
+                <div class="h-line"></div>
+            </div>
+            
+            <div class="connector"></div>
+            
+            <!-- Center box -->
+            <div class="center-box">
+                <h2>Micromobility Services</h2>
+                <p>Spatial Configuration & Modal Accessibility in Los Angeles County</p>
+            </div>
+            
+            <div class="connector"></div>
+            
+            <div class="horizontal-connector">
+                <div class="h-line"></div>
+            </div>
+            
+            <div class="v-lines">
+                <div class="v-line"></div>
+                <div class="v-line"></div>
+                <div class="v-line"></div>
+            </div>
+            
+            <!-- Second row: Analysis Frameworks -->
+            <div class="section">
+                <div class="box analysis-box">
+                    <div class="box-title">Market Mobility</div>
+                    <div class="box-content">
+                        <ul>
+                            <li>Free-Market Approaches</li>
+                            <li>Regulation Balance</li>
+                            <li>Service Enhancement</li>
+                            <li>Pricing Models</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="box analysis-box">
+                    <div class="box-title">Infrastructure Politics</div>
+                    <div class="box-content">
+                        <ul>
+                            <li>Car-Centric Design</li>
+                            <li>Parking Reform</li>
+                            <li>Spatial Distribution</li>
+                            <li>Multimodal Integration</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="box analysis-box">
+                    <div class="box-title">Demographic Access</div>
+                    <div class="box-content">
+                        <ul>
+                            <li>Income Stratification</li>
+                            <li>Racial Demographics</li>
+                            <li>Transit Deserts</li>
+                            <li>Digital Divide</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Connector -->
+            <div class="v-lines">
+                <div class="v-line"></div>
+                <div class="v-line"></div>
+                <div class="v-line"></div>
+            </div>
+            
+            <div class="horizontal-connector">
+                <div class="h-line"></div>
+            </div>
+            
+            <div class="connector"></div>
+            
+            <!-- Third row: Methodology & Outcomes -->
+            <div class="section">
+                <div class="box methodology-box">
+                    <div class="box-title">Research Methodology</div>
+                    <div class="box-content">
+                        <ul>
+                            <li>GIS-Based Spatial Analytics</li>
+                            <li>Statistical Correlation Analysis</li>
+                            <li>Fare Structure Examination</li>
+                            <li>Spatial Distribution Mapping</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="box outcomes-box">
+                    <div class="box-title">Expected Outcomes</div>
+                    <div class="box-content">
+                        <ul>
+                            <li>Transportation Equity Assessment</li>
+                            <li>Spatial Mismatch Analysis</li>
+                            <li>Policy Recommendations</li>
+                            <li>Infrastructure Integration Models</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="box policy-box">
+                    <div class="box-title">Research Significance</div>
+                    <div class="box-content">
+                        <ul>
+                            <li>Urban Governance Insights</li>
+                            <li>Planning Policy Development</li>
+                            <li>Mobility Justice Framework</li>
+                            <li>Sustainable Urban Mobility</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
