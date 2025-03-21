@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avant-Garde Theoretical Framework</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --neo-color: #00ffa3;
+      --neo-shadow: rgba(0, 255, 163, 0.4);
+      --justice-color: #0affff;
+      --justice-shadow: rgba(10, 255, 255, 0.4);
+      --critical-color: #ff6bc1;
+      --critical-shadow: rgba(255, 107, 193, 0.4);
+      --micro-color: #ffce00;
+      --micro-shadow: rgba(255, 206, 0, 0.4);
+      --market-color: #80ff72;
+      --market-shadow: rgba(128, 255, 114, 0.4);
+      --infra-color: #a67cff;
+      --infra-shadow: rgba(166, 124, 255, 0.4);
+      --lens-color: #ff9e58;
+      --lens-shadow: rgba(255, 158, 88, 0.4);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    body {
+      min-height: 100vh;
+      background-color: #0a0a14;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      width: 90vw;
+      max-width: 1200px;
+      height: 90vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .title-section {
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .title-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, var(--neo-color), var(--justice-color), var(--critical-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+      z-index: 2;
+      letter-spacing: -0.5px;
+    }
+    
+    .title-section h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      opacity: 0.7;
+      font-style: italic;
+    }
+    
+    .title-section::after {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 1px;
+      background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0));
+      bottom: -1rem;
+      left: 25%;
+    }
+    
+    .framework-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto 1fr auto;
+      gap: 1.5rem;
+      flex-grow: 1;
+      position: relative;
+    }
+    
+    .theory-node {
+      border-radius: 12px;
+      padding: 1.5rem;
+      background-color: rgba(20, 20, 35, 0.7);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      z-index: 2;
+    }
+    
+    .theory-node:hover {
+      transform: translateY(-5px);
+    }
+    
+    .theory-node::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.1), transparent 60%);
+      pointer-events: none;
+    }
+    
+    .node-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    
+    .node-title::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 1rem;
+      display: block;
+    }
+    
+    .node-title h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    
+    .node-content ul {
+      list-style: none;
+    }
+    
+    .node-content li {
+      margin-bottom: 0.7rem;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      opacity: 0.85;
+    }
+    
+    .node-content li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    
+    /* Node styles */
+    .neoliberal {
+      border: 1px solid var(--neo-color);
+      box-shadow: 0 0 15px var(--neo-shadow);
+    }
+    
+    .neoliberal .node-title::before {
+      background-color: var(--neo-color);
+      box-shadow: 0 0 10px var(--neo-shadow);
+    }
+    
+    .neoliberal .node-title h3 {
+      color: var(--neo-color);
+    }
+    
+    .social-justice {
+      border: 1px solid var(--justice-color);
+      box-shadow: 0 0 15px var(--justice-shadow);
+    }
+    
+    .social-justice .node-title::before {
+      background-color: var(--justice-color);
+      box-shadow: 0 0 10px var(--justice-shadow);
+    }
+    
+    .social-justice .node-title h3 {
+      color: var(--justice-color);
+    }
+    
+    .critical-planning {
+      border: 1px solid var(--critical-color);
+      box-shadow: 0 0 15px var(--critical-shadow);
+    }
+    
+    .critical-planning .node-title::before {
+      background-color: var(--critical-color);
+      box-shadow: 0 0 10px var(--critical-shadow);
+    }
+    
+    .critical-planning .node-title h3 {
+      color: var(--critical-color);
+    }
+    
+    .micromobility {
+      grid-column: 2;
+      border: 1px solid var(--micro-color);
+      box-shadow: 0 0 20px var(--micro-shadow);
+    }
+    
+    .micromobility .node-title::before {
+      background-color: var(--micro-color);
+      box-shadow: 0 0 10px var(--micro-shadow);
+    }
+    
+    .micromobility .node-title h3 {
+      color: var(--micro-color);
+    }
+    
+    .market-mobility {
+      border: 1px solid var(--market-color);
+      box-shadow: 0 0 15px var(--market-shadow);
+    }
+    
+    .market-mobility .node-title::before {
+      background-color: var(--market-color);
+      box-shadow: 0 0 10px var(--market-shadow);
+    }
+    
+    .market-mobility .node-title h3 {
+      color: var(--market-color);
+    }
+    
+    .infrastructure {
+      border: 1px solid var(--infra-color);
+      box-shadow: 0 0 15px var(--infra-shadow);
+    }
+    
+    .infrastructure .node-title::before {
+      background-color: var(--infra-color);
+      box-shadow: 0 0 10px var(--infra-shadow);
+    }
+    
+    .infrastructure .node-title h3 {
+      color: var(--infra-color);
+    }
+    
+    .additional-lenses {
+      border: 1px solid var(--lens-color);
+      box-shadow: 0 0 15px var(--lens-shadow);
+    }
+    
+    .additional-lenses .node-title::before {
+      background-color: var(--lens-color);
+      box-shadow: 0 0 10px var(--lens-shadow);
+    }
+    
+    .additional-lenses .node-title h3 {
+      color: var(--lens-color);
+    }
+    
+    /* Connection lines */
+    .connections {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+    
+    /* Research question */
+    .research-question {
+      grid-column: 1 / span 3;
+      text-align: center;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      background-color: rgba(20, 20, 35, 0.7);
+      backdrop-filter: blur(10px);
+    }
+    
+    .research-question h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.7rem;
+      background: linear-gradient(to right, var(--neo-color), var(--justice-color), var(--critical-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .research-question p {
+      font-style: italic;
+      opacity: 0.8;
+      font-size: 1.1rem;
+    }
+    
+    /* Animation */
+    @keyframes pulse {
+      0% { box-shadow: 0 0 15px var(--micro-shadow); }
+      50% { box-shadow: 0 0 30px var(--micro-shadow); }
+      100% { box-shadow: 0 0 15px var(--micro-shadow); }
+    }
+    
+    .micromobility {
+      animation: pulse 3s infinite ease-in-out;
+    }
+    
+    /* Background elements */
+    .bg-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.2;
+    }
+    
+    .bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+    }
+    
+    .bg-1 {
+      width: 300px;
+      height: 300px;
+      background-color: var(--neo-color);
+      top: -100px;
+      left: -100px;
+    }
+    
+    .bg-2 {
+      width: 400px;
+      height: 400px;
+      background-color: var(--critical-color);
+      bottom: -150px;
+      right: -150px;
+    }
+    
+    .bg-3 {
+      width: 200px;
+      height: 200px;
+      background-color: var(--justice-color);
+      top: 40%;
+      left: 40%;
+    }
+    
+    /* Responsive */
+    @media (max-width: 900px) {
+      .framework-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, auto);
+        gap: 1rem;
+      }
+      
+      .micromobility, .research-question {
+        grid-column: 1;
+      }
+      
+      .theory-node {
+        padding: 1rem;
+      }
+      
+      .title-section h1 {
+        font-size: 1.8rem;
+      }
+    }
+    
+    /* Avant-garde elements */
+    .glitch {
+      position: relative;
+    }
+    
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0a0a14;
+    }
+    
+    .glitch::before {
+      left: 2px;
+      text-shadow: -1px 0 var(--justice-color);
+      animation: glitch-animation 3s infinite linear alternate-reverse;
+      clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+      opacity: 0.7;
+    }
+    
+    .glitch::after {
+      left: -2px;
+      text-shadow: 1px 0 var(--neo-color);
+      animation: glitch-animation 2s infinite linear alternate-reverse;
+      clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+      opacity: 0.7;
+    }
+    
+    @keyframes glitch-animation {
+      0% { transform: translateX(-2px); }
+      25% { transform: translateX(0); }
+      50% { transform: translateX(2px); }
+      75% { transform: translateX(0); }
+      100% { transform: translateX(-2px); }
+    }
+    
+    .constellation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+    
+    .star {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      width: 1px;
+      height: 1px;
+    }
+    
+    .star--small {
+      width: 1px;
+      height: 1px;
+    }
+    
+    .star--medium {
+      width: 2px;
+      height: 2px;
+    }
+    
+    .star--large {
+      width: 3px;
+      height: 3px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Elements -->
+  <div class="bg-elements">
+    <div class="bg-circle bg-1"></div>
+    <div class="bg-circle bg-2"></div>
+    <div class="bg-circle bg-3"></div>
+  </div>
+  
+  <!-- Star Constellation Background -->
+  <div class="constellation" id="constellation"></div>
+  
+  <div class="container">
+    <div class="title-section">
+      <h1 data-text="Theoretical Framework for Micromobility Research" class="glitch">Theoretical Framework for Micromobility Research</h1>
+      <h2>Los Angeles County: Access and Inequality</h2>
+    </div>
+    
+    <div class="framework-grid">
+      <!-- First Tier -->
+      <div class="theory-node neoliberal">
+        <div class="node-title">
+          <h3>Neoliberal Urbanism</h3>
+        </div>
+        <div class="node-content">
+          <ul>
+            <li>Privatization of urban services</li>
+            <li>Market-driven solutions</li>
+            <li>Urban growth politics</li>
+            <li>Capital accumulation</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="theory-node social-justice">
+        <div class="node-title">
+          <h3>Social Justice</h3>
+        </div>
+        <div class="node-content">
+          <ul>
+            <li>Transportation equity</li>
+            <li>Right to the city</li>
+            <li>Mobility as equality</li>
+            <li>Universal commons</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="theory-node critical-planning">
+        <div class="node-title">
+          <h3>Critical Planning</h3>
+        </div>
+        <div class="node-content">
+          <ul>
+            <li>Power dynamics</li>
+            <li>Public engagement</li>
+            <li>Information politics</li>
+            <li>Progressive planning</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Second Tier -->
+      <div class="theory-node micromobility">
+        <div class="node-title">
+          <h3>Micromobility Services</h3>
+        </div>
+        <div class="node-content">
+          <ul>
+            <li>Metro Bike Share</li>
+            <li>Lime e-scooters</li>
+            <li>Last-mile solutions</li>
+            <li>Pricing & accessibility</li>
+            <li>Spatial distribution</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Third Tier -->
+      <div class="theory-node market-mobility">
+        <div class="node-title">
+          <h3>Market Mobility</h3>
+        </div>
+        <div class="node-content">
+          <ul>
+            <li>Free-market approaches</li>
+            <li>Regulation balance</li>
+            <li>Service enhancement</li>
+            <li>Dynamic pricing</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="theory-node infrastructure">
+        <div class="node-title">
+          <h3>Infrastructure Politics</h3>
+        </div>
+        <div class="node-content">
+          <ul>
+            <li>Car-centric design</li>
+            <li>Parking reform</li>
+            <li>Spatial distribution</li>
+            <li>Transit integration</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="theory-node additional-lenses">
+        <div class="node-title">
+          <h3>Additional Lenses</h3>
+        </div>
+        <div class="node-content">
+          <ul>
+            <li>Incrementalism</li>
+            <li>Advocacy planning</li>
+            <li>Community-based planning</li>
+            <li>Transit justice</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Research Question -->
+      <div class="research-question">
+        <h3>Micromobility Services in Los Angeles: Access and Inequality</h3>
+        <p>Do micromobility services bridge transit gaps or perpetuate socio-spatial inequalities?</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- SVG Connections -->
+  <div class="connections">
+    <svg>
+      <!-- First tier to Micromobility -->
+      <path d="M190,200 Q190,250 350,300" stroke="url(#neo-gradient)" stroke-width="2" fill="none"/>
+      <path d="M600,200 Q600,250 450,300" stroke="url(#critical-gradient)" stroke-width="2" fill="none"/>
+      <path d="M400,200 L400,280" stroke="url(#justice-gradient)" stroke-width="2" fill="none"/>
+      
+      <!-- Micromobility to Third tier -->
+      <path d="M350,380 Q350,420 200,450" stroke="url(#market-gradient)" stroke-width="2" fill="none"/>
+      <path d="M400,380 L400,430" stroke="url(#infra-gradient)" stroke-width="2" fill="none"/>
+      <path d="M450,380 Q450,420 600,450" stroke="url(#lens-gradient)" stroke-width="2" fill="none"/>
+      
+      <!-- Gradients -->
+      <defs>
+        <linearGradient id="neo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--neo-color)" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="var(--micro-color)" stop-opacity="0.7"/>
+        </linearGradient>
+        
+        <linearGradient id="justice-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--justice-color)" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="var(--micro-color)" stop-opacity="0.7"/>
+        </linearGradient>
+        
+        <linearGradient id="critical-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--critical-color)" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="var(--micro-color)" stop-opacity="0.7"/>
+        </linearGradient>
+        
+        <linearGradient id="market-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--micro-color)" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="var(--market-color)" stop-opacity="0.7"/>
+        </linearGradient>
+        
+        <linearGradient id="infra-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--micro-color)" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="var(--infra-color)" stop-opacity="0.7"/>
+        </linearGradient>
+        
+        <linearGradient id="lens-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--micro-color)" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="var(--lens-color)" stop-opacity="0.7"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+  
+  <script>
+    // Create star constellation background
+    const constellation = document.getElementById('constellation');
+    const starCount = 100;
+    
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      
+      // Random size
+      const size = Math.random();
+      if (size < 0.6) {
+        star.classList.add('star--small');
+      } else if (size < 0.9) {
+        star.classList.add('star--medium');
+      } else {
+        star.classList.add('star--large');
+      }
+      
+      // Random position
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.top = `${Math.random() * 100}%`;
+      
+      // Random opacity
+      star.style.opacity = Math.random() * 0.8 + 0.2;
+      
+      // Random animation
+      const duration = Math.random() * 3 + 2;
+      star.style.animation = `pulse ${duration}s infinite ease-in-out`;
+      
+      constellation.appendChild(star);
+    }
+  </script>
+</body>
+</html>
